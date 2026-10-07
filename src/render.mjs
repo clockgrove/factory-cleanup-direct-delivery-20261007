@@ -2,5 +2,6 @@ import { normalizeTasks } from './normalize.mjs';
 import { formatTask } from './format.mjs';
 
 export function renderTasks(records) {
-  throw new Error('Implementation required: renderTasks');
+  const lines = normalizeTasks(records).map(formatTask);
+  return lines.length === 0 ? '' : `${lines.join('\n')}\n`;
 }
